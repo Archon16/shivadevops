@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Portfolio - Shiva Rajan | DevOps Portfolio</title>
+  <meta name="description" content="Shiva Rajan's project portfolio — DevOps, cloud infrastructure, and engineering projects."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shared.css"/>
+  <script>
+    (function(){ var t=localStorage.getItem('portfolio-theme')||'dark'; document.documentElement.className=t; })();
+  </script>
+</head>
+<body class="font-body min-h-screen transition-colors duration-300">
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"
+    class="fixed top-5 left-5 z-[999] w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 theme-toggle-btn">
+    <span id="theme-icon" class="material-symbols-outlined text-xl">dark_mode</span>
+  </button>
+
+  <!-- TopAppBar -->
+  <header class="fixed top-0 w-full z-40 flex justify-between items-center px-12 h-20 transition-colors duration-300 top-app-bar">
+    <div class="font-headline font-bold tracking-widest uppercase text-lg brand-text ml-12">DevOps Portfolio</div>
+    <nav class="hidden md:flex gap-8 items-center">
+      <a class="nav-link font-label font-medium text-[11px] uppercase tracking-[0.2em] transition-colors duration-300" href="index.html">Home</a>
+      <a class="nav-link font-label font-medium text-[11px] uppercase tracking-[0.2em] transition-colors duration-300" href="resume.html">Resume</a>
+      <a class="nav-link active font-label font-bold text-[11px] uppercase tracking-[0.2em]" href="portfolio.html">Portfolio</a>
+      <a class="nav-link font-label font-medium text-[11px] uppercase tracking-[0.2em] transition-colors duration-300" href="contact.html">Contact</a>
+    </nav>
+    <div class="version-text font-label font-bold tracking-tight">v4.0.2-stable</div>
+  </header>
+
+  <!-- SideNav -->
+  <aside class="fixed left-0 top-0 h-full w-72 flex flex-col pt-32 px-8 gap-4 bg-transparent hidden lg:flex">
+    <div class="mb-8">
+      <h2 class="text-2xl font-black font-headline brand-text">Shiva Rajan</h2>
+      <p class="font-label text-[11px] uppercase tracking-[0.2em] font-medium nav-label-text">DevOps Engineer</p>
+    </div>
+    <a class="nav-item px-6 py-3 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]" href="index.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Home</span>
+    </a>
+    <a class="nav-item px-6 py-3 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]" href="resume.html">
+      <span class="material-symbols-outlined">description</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Resume</span>
+    </a>
+    <a class="nav-item active rounded-full px-6 py-3 flex items-center gap-4 transition-all active:scale-95" href="portfolio.html">
+      <span class="material-symbols-outlined">terminal</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Portfolio</span>
+    </a>
+    <a class="nav-item px-6 py-3 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]" href="contact.html">
+      <span class="material-symbols-outlined">mail</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Contact</span>
+    </a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 lg:ml-72 flex flex-col min-h-screen">
+    <!-- Portfolio Hero & Filter -->
+    <section class="mt-32 px-6 md:px-12 mb-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div>
+            <h1 class="text-5xl md:text-6xl font-headline font-bold tracking-tight on-surface-text mb-4">Portfolio</h1>
+            <div class="h-1 w-24 rounded-full" style="background-color:var(--primary-container)"></div>
+          </div>
+          <!-- Filter Chips -->
+          <div class="flex flex-wrap gap-3">
+            <button onclick="filterProjects('all')" id="filter-all"
+              class="filter-chip filter-chip-active px-6 py-2 font-label text-[11px] uppercase tracking-widest rounded-full font-bold transition-all">All</button>
+            <button onclick="filterProjects('project')" id="filter-project"
+              class="filter-chip px-6 py-2 font-label text-[11px] uppercase tracking-widest rounded-full transition-all">Project</button>
+            <button onclick="filterProjects('certification')" id="filter-certification"
+              class="filter-chip px-6 py-2 font-label text-[11px] uppercase tracking-widest rounded-full transition-all">Certifications</button>
+            <button onclick="filterProjects('badge')" id="filter-badge"
+              class="filter-chip px-6 py-2 font-label text-[11px] uppercase tracking-widest rounded-full transition-all">Badge</button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projects-grid">
+
+          <!-- Project 1 -->
+          <div class="group cursor-pointer project-item" data-type="project" onclick="openOverlay('p1')">
+            <div class="relative aspect-[16/10] project-card-bg rounded-xl overflow-hidden mb-6 transition-transform duration-500 group-hover:scale-[1.02]">
+              <img alt="High-Availability Network Design" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute top-6 left-6">
+                <span class="project-tag px-3 py-1 font-label text-[10px] uppercase tracking-widest rounded-full">Project</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-headline font-bold on-surface-text tracking-tight group-hover:primary-text transition-colors">High-Availability Network Design</h3>
+            <p class="on-surface-variant-text text-sm mt-2">Multi-region Kubernetes cluster with 99.99% SLA</p>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="group cursor-pointer project-item md:mt-12" data-type="project" onclick="openOverlay('p2')">
+            <div class="relative aspect-[16/10] project-card-bg rounded-xl overflow-hidden mb-6 transition-transform duration-500 group-hover:scale-[1.02]">
+              <img alt="Hidemail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute top-6 left-6">
+                <span class="project-tag px-3 py-1 font-label text-[10px] uppercase tracking-widest rounded-full">Project</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-headline font-bold on-surface-text tracking-tight group-hover:primary-text transition-colors">Hidemail</h3>
+            <p class="on-surface-variant-text text-sm mt-2">Privacy-focused email masking service with zero-log policy</p>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="group cursor-pointer project-item" data-type="project" onclick="openOverlay('p3')">
+            <div class="relative aspect-[16/10] project-card-bg rounded-xl overflow-hidden mb-6 transition-transform duration-500 group-hover:scale-[1.02]">
+              <img alt="RAG-Powered API" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad979?auto=format&fit=crop&q=80&w=800"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute top-6 left-6">
+                <span class="project-tag px-3 py-1 font-label text-[10px] uppercase tracking-widest rounded-full">Project</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-headline font-bold on-surface-text tracking-tight group-hover:primary-text transition-colors">RAG-Powered API Architecture</h3>
+            <p class="on-surface-variant-text text-sm mt-2">Production-grade API with Retrieval-Augmented Generation using FastAPI & ChromaDB</p>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="group cursor-pointer project-item md:mt-12" data-type="certification" onclick="openOverlay('p4')">
+            <div class="relative aspect-[16/10] project-card-bg rounded-xl overflow-hidden mb-6 transition-transform duration-500 group-hover:scale-[1.02]">
+              <img alt="DTS 2024 – Cloud Computing" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute top-6 left-6">
+                <span class="project-tag px-3 py-1 font-label text-[10px] uppercase tracking-widest rounded-full">Certification</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-headline font-bold on-surface-text tracking-tight group-hover:primary-text transition-colors">DTS 2024 – Cloud Computing</h3>
+            <p class="on-surface-variant-text text-sm mt-2">AWS Solutions Architect Professional certification study project</p>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="group cursor-pointer project-item" data-type="badge" onclick="openOverlay('p5')">
+            <div class="relative aspect-[16/10] project-card-bg rounded-xl overflow-hidden mb-6 transition-transform duration-500 group-hover:scale-[1.02]">
+              <img alt="CKA Badge" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=800"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute top-6 left-6">
+                <span class="project-tag px-3 py-1 font-label text-[10px] uppercase tracking-widest rounded-full">Badge</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-headline font-bold on-surface-text tracking-tight group-hover:primary-text transition-colors">CKA - Kubernetes Admin Badge</h3>
+            <p class="on-surface-variant-text text-sm mt-2">Linux Foundation Certified Kubernetes Administrator</p>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="group cursor-pointer project-item md:mt-12" data-type="project" onclick="openOverlay('p3')">
+            <div class="relative aspect-[16/10] project-card-bg rounded-xl overflow-hidden mb-6 transition-transform duration-500 group-hover:scale-[1.02]">
+              <img alt="Cajero App" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute top-6 left-6">
+                <span class="project-tag px-3 py-1 font-label text-[10px] uppercase tracking-widest rounded-full">Project</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-headline font-bold on-surface-text tracking-tight group-hover:primary-text transition-colors">Cajero App</h3>
+            <p class="on-surface-variant-text text-sm mt-2">Financial transaction processing microservice with automated testing</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-16 mt-auto flex flex-col items-center justify-center gap-8 footer-bg border-t footer-border">
+      <div class="flex gap-12">
+        <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://github.com" target="_blank">GitHub</a>
+        <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://twitter.com" target="_blank">Twitter</a>
+      </div>
+      <p class="font-body text-[10px] uppercase tracking-widest footer-link">© 2024 Systems Architect</p>
+    </footer>
+  </main>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full h-16 flex items-center justify-around z-50 px-4 bottom-nav">
+    <a class="flex flex-col items-center gap-1 nav-label-text" href="index.html">
+      <span class="material-symbols-outlined">home</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 nav-label-text" href="resume.html">
+      <span class="material-symbols-outlined">description</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 primary-text" href="portfolio.html">
+      <span class="material-symbols-outlined">terminal</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 nav-label-text" href="contact.html">
+      <span class="material-symbols-outlined">mail</span>
+    </a>
+  </nav>
+
+  <!-- ===== PROJECT OVERLAYS ===== -->
+
+  <!-- Overlay: Project 1 - Network Design -->
+  <div id="overlay-p1" class="overlay-backdrop overlay-hidden" onclick="closeOverlayOutside(event, 'p1')">
+    <div class="overlay-bg"></div>
+    <div class="overlay-panel">
+      <div class="flex items-center justify-between p-6 border-b" style="border-color:var(--outline-variant)">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color:rgba(186,195,255,0.15)">
+            <span class="material-symbols-outlined primary-text">lan</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-xl font-bold tracking-tight on-surface-text">High-Availability Network Design</h2>
+            <p class="text-[10px] primary-text uppercase font-bold tracking-[0.2em]">Project Deep Dive</p>
+          </div>
+        </div>
+        <button onclick="closeOverlay('p1')" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors" style="background-color:transparent" onmouseover="this.style.backgroundColor='var(--surface-container)'" onmouseout="this.style.backgroundColor='transparent'">
+          <span class="material-symbols-outlined on-surface-variant-text">close</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto scrollbar-hide p-8 md:p-12 space-y-12">
+        <div class="h-48 rounded-xl overflow-hidden" style="background-color:var(--surface-container-high)">
+          <img class="w-full h-full object-cover opacity-70" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000" alt="Network infrastructure"/>
+        </div>
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div class="md:col-span-7">
+            <div class="project-tag-overlay mb-4">Case Study 01</div>
+            <h3 class="font-headline text-3xl font-bold on-surface-text mb-6 tracking-tighter">Multi-Region HA Cluster</h3>
+            <p class="on-surface-variant-text text-lg leading-relaxed">
+              Architected a production-grade multi-region Kubernetes cluster serving 1M+ daily active users. Implemented zero-downtime deployments with ArgoCD and GitOps principles, reducing deployment time by 65%.
+            </p>
+          </div>
+          <div class="md:col-span-5 flex flex-col gap-4">
+            <a href="https://github.com" target="_blank" class="group relative flex items-center justify-between w-full bg-blue-600 hover:bg-blue-500 px-5 py-4 rounded-lg border-2 border-blue-400/30 shadow-[0_0_20px_rgba(51,103,255,0.2)] transition-all duration-300">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-2xl text-white">code</span>
+                <div class="flex flex-col">
+                  <span class="text-[9px] text-blue-200 font-mono tracking-widest uppercase">git push origin master</span>
+                  <span class="font-headline text-base font-bold text-white tracking-tighter">VIEW SOURCE ON GITHUB</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+            </a>
+            <div class="log-panel">
+              <div class="flex items-center gap-2 mb-4" style="border-bottom:1px solid var(--outline-variant);padding-bottom:0.5rem">
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="text-[10px] on-surface-variant-text uppercase tracking-widest">System Logs</span>
+              </div>
+              <div class="space-y-2 text-[11px]">
+                <div class="flex justify-between"><span style="color:#6b7280">BUILD_STATUS:</span><span class="text-green-400 font-bold">SUCCESS</span></div>
+                <div class="flex justify-between"><span style="color:#6b7280">UPTIME_SLA:</span><span class="text-blue-400">99.99%</span></div>
+                <div class="flex justify-between"><span style="color:#6b7280">REGIONS:</span><span class="text-blue-400">3 Active</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="h-[1px] flex-1" style="background-color:var(--outline-variant);opacity:0.3"></div>
+            <h4 class="font-headline text-xs font-black uppercase tracking-[0.3em]" style="color:#ff7520">Tech Stack</h4>
+            <div class="h-[1px] flex-1" style="background-color:var(--outline-variant);opacity:0.3"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+              <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">hub</span>
+              <h5 class="font-bold on-surface-text mb-2 text-sm">Kubernetes</h5>
+              <p class="text-xs on-surface-variant-text">Multi-region cluster orchestration with custom operators.</p>
+            </div>
+            <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+              <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">commit</span>
+              <h5 class="font-bold on-surface-text mb-2 text-sm">ArgoCD</h5>
+              <p class="text-xs on-surface-variant-text">GitOps-based continuous deployment across all clusters.</p>
+            </div>
+            <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+              <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">shield</span>
+              <h5 class="font-bold on-surface-text mb-2 text-sm">Istio + Vault</h5>
+              <p class="text-xs on-surface-variant-text">Zero-trust security with encrypted service mesh.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="p-4 text-center" style="background-color:var(--surface-container-highest)">
+        <p class="text-[10px] on-surface-variant-text uppercase tracking-[0.4em]">DevOps Portfolio • Project Report</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay: Project 3 - RAG API (default overlay shown for other projects too) -->
+  <div id="overlay-p2" class="overlay-backdrop overlay-hidden" onclick="closeOverlayOutside(event, 'p2')">
+    <div class="overlay-bg"></div>
+    <div class="overlay-panel">
+      <div class="flex items-center justify-between p-6 border-b" style="border-color:var(--outline-variant)">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color:rgba(186,195,255,0.15)">
+            <span class="material-symbols-outlined primary-text">lock</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-xl font-bold tracking-tight on-surface-text">Hidemail</h2>
+            <p class="text-[10px] primary-text uppercase font-bold tracking-[0.2em]">Project Deep Dive</p>
+          </div>
+        </div>
+        <button onclick="closeOverlay('p2')" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors" style="background-color:transparent" onmouseover="this.style.backgroundColor='var(--surface-container)'" onmouseout="this.style.backgroundColor='transparent'">
+          <span class="material-symbols-outlined on-surface-variant-text">close</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto scrollbar-hide p-8 md:p-12 space-y-12">
+        <div class="h-48 rounded-xl overflow-hidden" style="background-color:var(--surface-container-high)">
+          <img class="w-full h-full object-cover opacity-70" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1000" alt="Hidemail"/>
+        </div>
+        <section>
+          <div class="project-tag-overlay mb-4">Case Study 02</div>
+          <h3 class="font-headline text-3xl font-bold on-surface-text mb-6">Privacy-Focused Email Masking</h3>
+          <p class="on-surface-variant-text text-lg leading-relaxed">
+            A zero-log email masking microservice built with Go and deployed on Kubernetes. Provides disposable email addresses that forward to real inboxes while preserving complete anonymity.
+          </p>
+        </section>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+            <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">code</span>
+            <h5 class="font-bold on-surface-text mb-2 text-sm">Go / Gin</h5>
+            <p class="text-xs on-surface-variant-text">High-performance HTTP backend with < 5ms latency.</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+            <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">hub</span>
+            <h5 class="font-bold on-surface-text mb-2 text-sm">Kubernetes</h5>
+            <p class="text-xs on-surface-variant-text">Containerized with auto-scaling based on request load.</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+            <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">lock</span>
+            <h5 class="font-bold on-surface-text mb-2 text-sm">Zero-Log Policy</h5>
+            <p class="text-xs on-surface-variant-text">All emails processed in-memory with no persistent storage.</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 text-center" style="background-color:var(--surface-container-highest)">
+        <p class="text-[10px] on-surface-variant-text uppercase tracking-[0.4em]">DevOps Portfolio • Project Report</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay: RAG API -->
+  <div id="overlay-p3" class="overlay-backdrop overlay-hidden" onclick="closeOverlayOutside(event, 'p3')">
+    <div class="overlay-bg"></div>
+    <div class="overlay-panel">
+      <div class="flex items-center justify-between p-6 border-b" style="border-color:var(--outline-variant)">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color:rgba(186,195,255,0.15)">
+            <span class="material-symbols-outlined primary-text">analytics</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-xl font-bold tracking-tight on-surface-text">RAG-Powered API Architecture</h2>
+            <p class="text-[10px] primary-text uppercase font-bold tracking-[0.2em]">Project Deep Dive</p>
+          </div>
+        </div>
+        <button onclick="closeOverlay('p3')" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors" style="background-color:transparent" onmouseover="this.style.backgroundColor='var(--surface-container)'" onmouseout="this.style.backgroundColor='transparent'">
+          <span class="material-symbols-outlined on-surface-variant-text">close</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto scrollbar-hide p-8 md:p-12 space-y-12">
+        <div class="h-48 rounded-xl overflow-hidden" style="background-color:var(--surface-container-high)">
+          <img class="w-full h-full object-cover opacity-70" src="https://images.unsplash.com/photo-1677442136019-21780ecad979?auto=format&fit=crop&q=80&w=1000" alt="RAG API"/>
+        </div>
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div class="md:col-span-7">
+            <div class="project-tag-overlay mb-4">Case Study 03</div>
+            <h3 class="font-headline text-3xl font-bold on-surface-text mb-6 tracking-tighter">Introducing Today's Project!</h3>
+            <p class="on-surface-variant-text text-lg leading-relaxed">
+              I spent my afternoon building a production-level API with RAG (Retrieval-Augmented Generation). The goal was to move beyond simple chatbots and create a robust middleware that can extract semantic meaning from unstructured data and pipe it into localized LLMs for precision responses.
+            </p>
+          </div>
+          <div class="md:col-span-5 flex flex-col gap-4">
+            <a href="https://github.com" target="_blank" class="group relative flex items-center justify-between w-full bg-blue-600 hover:bg-blue-500 px-5 py-4 rounded-lg border-2 border-blue-400/30 shadow-[0_0_20px_rgba(51,103,255,0.2)] transition-all duration-300">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-2xl text-white">code</span>
+                <div>
+                  <div class="text-[9px] text-blue-200 font-mono tracking-widest uppercase">git push origin master</div>
+                  <div class="font-headline text-base font-bold text-white tracking-tighter">VIEW SOURCE ON GITHUB</div>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+            </a>
+            <div class="log-panel">
+              <div class="flex items-center gap-2 mb-4" style="border-bottom:1px solid var(--outline-variant);padding-bottom:0.5rem">
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="text-[10px] on-surface-variant-text uppercase tracking-widest">Project System Logs</span>
+              </div>
+              <div class="space-y-2 text-[11px]">
+                <div class="flex justify-between"><span style="color:#6b7280">BUILD_STATUS:</span><span class="text-green-400 font-bold">SUCCESS</span></div>
+                <div class="flex justify-between"><span style="color:#6b7280">RUNTIME_LATENCY:</span><span class="text-blue-400">120ms</span></div>
+                <div class="flex justify-between"><span style="color:#6b7280">MEMORY_USAGE:</span><span class="text-blue-400">256.4 MB</span></div>
+                <div class="flex justify-between"><span style="color:#6b7280">LAST_DEPLOY:</span><span style="color:#9ca3af">2024.05.24_14:30</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="h-[1px] flex-1" style="background-color:var(--outline-variant);opacity:0.3"></div>
+            <h4 class="font-headline text-xs font-black uppercase tracking-[0.3em]" style="color:#ff7520">Services & Concepts</h4>
+            <div class="h-[1px] flex-1" style="background-color:var(--outline-variant);opacity:0.3"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+              <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">database</span>
+              <h5 class="font-bold on-surface-text mb-2 text-sm">ChromaDB</h5>
+              <p class="text-xs on-surface-variant-text">Vector storage for fast semantic search and retrieval.</p>
+            </div>
+            <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+              <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">smart_toy</span>
+              <h5 class="font-bold on-surface-text mb-2 text-sm">Ollama</h5>
+              <p class="text-xs on-surface-variant-text">Running local LLMs for data privacy and low-latency.</p>
+            </div>
+            <div class="p-4 rounded-lg" style="background-color:var(--surface-container-low);border:1px solid var(--outline-variant)">
+              <span class="material-symbols-outlined mb-3 block" style="color:#81ecff">api</span>
+              <h5 class="font-bold on-surface-text mb-2 text-sm">FastAPI</h5>
+              <p class="text-xs on-surface-variant-text">High-concurrency endpoints for production-scale usage.</p>
+            </div>
+          </div>
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-xl relative overflow-hidden" style="background-color:var(--surface-container-high);border:1px solid var(--outline-variant)">
+            <h4 class="font-headline text-xl font-bold on-surface-text mb-4">Challenges & Wins</h4>
+            <p class="on-surface-variant-text text-sm leading-relaxed mb-4">
+              The primary challenge was completing a full integration from scratch in under 90 minutes. Vector database creation and embedding dimensionality proved complex, but the result is a seamless end-to-end pipeline.
+            </p>
+            <div class="flex items-center gap-2 primary-text">
+              <span class="material-symbols-outlined text-sm">schedule</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest">Time to Deploy: 90 Mins</span>
+            </div>
+          </div>
+          <div class="p-8 rounded-xl relative overflow-hidden" style="background-color:var(--surface-container-high);border:1px solid var(--outline-variant)">
+            <h4 class="font-headline text-xl font-bold on-surface-text mb-4">Why I did this project</h4>
+            <p class="on-surface-variant-text text-sm leading-relaxed mb-4">
+              Motivation stemmed from a desire to gain hands-on knowledge in the synergy between FastAPI and RAG. I wanted to demonstrate that AI isn't just a wrapper but a core architectural component.
+            </p>
+            <div class="flex items-center gap-2" style="color:#ff7520">
+              <span class="material-symbols-outlined text-sm">school</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest">Growth Focused</span>
+            </div>
+          </div>
+        </section>
+        <div class="flex flex-col items-center justify-center py-12 border-t" style="border-color:var(--outline-variant)">
+          <h3 class="font-headline text-2xl font-bold on-surface-text mb-2">Ready to explore the code?</h3>
+          <p class="on-surface-variant-text text-sm mb-8">The entire repository is public and documented.</p>
+          <a href="https://github.com" target="_blank" class="inline-flex items-center gap-4 px-10 py-5 rounded-full font-bold hover:-translate-y-1 active:scale-95 group transition-all primary-text"
+            style="background-color:var(--primary);color:var(--on-primary)">
+            <span class="material-symbols-outlined">code</span>
+            <span class="uppercase tracking-widest text-sm">View Source on GitHub</span>
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="p-4 text-center" style="background-color:var(--surface-container-highest)">
+        <p class="text-[10px] on-surface-variant-text uppercase tracking-[0.4em]">Terminal Pulse v1.0.4 • Project Deployment Report</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generic overlays for p4, p5 -->
+  <div id="overlay-p4" class="overlay-backdrop overlay-hidden" onclick="closeOverlayOutside(event, 'p4')">
+    <div class="overlay-bg"></div>
+    <div class="overlay-panel">
+      <div class="flex items-center justify-between p-6 border-b" style="border-color:var(--outline-variant)">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color:rgba(186,195,255,0.15)">
+            <span class="material-symbols-outlined primary-text">cloud</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-xl font-bold on-surface-text">DTS 2024 – Cloud Computing</h2>
+            <p class="text-[10px] primary-text uppercase font-bold tracking-[0.2em]">Certification Deep Dive</p>
+          </div>
+        </div>
+        <button onclick="closeOverlay('p4')" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors" style="background-color:transparent" onmouseover="this.style.backgroundColor='var(--surface-container)'" onmouseout="this.style.backgroundColor='transparent'">
+          <span class="material-symbols-outlined on-surface-variant-text">close</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto scrollbar-hide p-8 md:p-12 space-y-8">
+        <div class="h-48 rounded-xl overflow-hidden"><img class="w-full h-full object-cover opacity-70" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" alt="Cloud"/></div>
+        <p class="on-surface-variant-text text-lg leading-relaxed">Achieved AWS Solutions Architect Professional certification through a rigorous 3-month study program, building cloud architecture labs and practicing multi-region deployment patterns.</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-chip">AWS EC2</span><span class="skill-chip">S3</span><span class="skill-chip">Lambda</span><span class="skill-chip">RDS</span><span class="skill-chip">CloudFormation</span><span class="skill-chip">Route53</span>
+        </div>
+      </div>
+      <div class="p-4 text-center" style="background-color:var(--surface-container-highest)"><p class="text-[10px] on-surface-variant-text uppercase tracking-[0.4em]">DevOps Portfolio • Certification</p></div>
+    </div>
+  </div>
+
+  <div id="overlay-p5" class="overlay-backdrop overlay-hidden" onclick="closeOverlayOutside(event, 'p5')">
+    <div class="overlay-bg"></div>
+    <div class="overlay-panel">
+      <div class="flex items-center justify-between p-6 border-b" style="border-color:var(--outline-variant)">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color:rgba(186,195,255,0.15)">
+            <span class="material-symbols-outlined primary-text">military_tech</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-xl font-bold on-surface-text">CKA - Kubernetes Admin Badge</h2>
+            <p class="text-[10px] primary-text uppercase font-bold tracking-[0.2em]">Badge Deep Dive</p>
+          </div>
+        </div>
+        <button onclick="closeOverlay('p5')" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors" style="background-color:transparent" onmouseover="this.style.backgroundColor='var(--surface-container)'" onmouseout="this.style.backgroundColor='transparent'">
+          <span class="material-symbols-outlined on-surface-variant-text">close</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto scrollbar-hide p-8 md:p-12 space-y-8">
+        <div class="h-48 rounded-xl overflow-hidden"><img class="w-full h-full object-cover opacity-70" src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=1000" alt="CKA"/></div>
+        <p class="on-surface-variant-text text-lg leading-relaxed">Linux Foundation Certified Kubernetes Administrator (CKA) — passed with 92% score. Covers cluster architecture, workloads, networking, storage, and troubleshooting in a hands-on 2-hour exam.</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-chip">Kubernetes</span><span class="skill-chip">etcd</span><span class="skill-chip">kubeadm</span><span class="skill-chip">NetworkPolicy</span><span class="skill-chip">PVs & PVCs</span>
+        </div>
+      </div>
+      <div class="p-4 text-center" style="background-color:var(--surface-container-highest)"><p class="text-[10px] on-surface-variant-text uppercase tracking-[0.4em]">DevOps Portfolio • Badge</p></div>
+    </div>
+  </div>
+
+  <script src="theme.js"></script>
+  <script>
+    // Filter projects
+    function filterProjects(type) {
+      var items = document.querySelectorAll('.project-item');
+      items.forEach(function(item) {
+        if (type === 'all' || item.dataset.type === type) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      // Update chip styles
+      ['all','project','certification','badge'].forEach(function(t) {
+        var el = document.getElementById('filter-' + t);
+        if (el) {
+          el.className = t === type
+            ? 'filter-chip filter-chip-active px-6 py-2 font-label text-[11px] uppercase tracking-widest rounded-full font-bold transition-all'
+            : 'filter-chip px-6 py-2 font-label text-[11px] uppercase tracking-widest rounded-full transition-all';
+        }
+      });
+    }
+
+    // Overlay open/close
+    function openOverlay(id) {
+      var el = document.getElementById('overlay-' + id);
+      if (el) { el.classList.remove('overlay-hidden'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeOverlay(id) {
+      var el = document.getElementById('overlay-' + id);
+      if (el) { el.classList.add('overlay-hidden'); document.body.style.overflow = ''; }
+    }
+    function closeOverlayOutside(event, id) {
+      if (event.target === document.getElementById('overlay-' + id)) closeOverlay(id);
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        ['p1','p2','p3','p4','p5'].forEach(closeOverlay);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Home - Shiva Rajan | DevOps Portfolio</title>
+  <meta name="description" content="Shiva Rajan - DevOps, SRE & Cloud Engineer. Architecting resilient digital infrastructures through automation and strategic cloud orchestration."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            /* Dark mode tokens */
+            "dark-surface": "#0e0e0f",
+            "dark-surface-container": "#1a191b",
+            "dark-surface-container-low": "#131314",
+            "dark-surface-container-high": "#201f21",
+            "dark-surface-container-highest": "#262528",
+            "dark-surface-bright": "#2c2c2f",
+            "dark-on-surface": "#e8e4e8",
+            "dark-on-surface-variant": "#acaaad",
+            "dark-primary": "#bac3ff",
+            "dark-outline": "#767578",
+            "dark-outline-variant": "#48474a",
+            /* Light mode tokens */
+            "light-surface": "#F9FAFB",
+            "light-surface-container": "#F3F4F6",
+            "light-surface-container-low": "#FFFFFF",
+            "light-surface-container-high": "#E5E7EB",
+            "light-surface-container-highest": "#D1D5DB",
+            "light-surface-bright": "#FFFFFF",
+            "light-on-surface": "#111827",
+            "light-on-surface-variant": "#4B5563",
+            "light-primary": "#2f3f92",
+            "light-outline": "#9CA3AF",
+            "light-outline-variant": "#D1D5DB",
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"]
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="shared.css"/>
+</head>
+<body id="body" class="font-body min-h-screen transition-colors duration-300">
+
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"
+    class="fixed top-5 left-5 z-[999] w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 theme-toggle-btn">
+    <span id="theme-icon" class="material-symbols-outlined text-xl">dark_mode</span>
+  </button>
+
+  <!-- TopAppBar -->
+  <header id="topbar" class="fixed top-0 w-full z-40 flex justify-between items-center px-12 h-20 transition-colors duration-300 top-app-bar">
+    <div class="font-headline font-bold tracking-widest uppercase text-lg brand-text ml-12">DevOps Portfolio</div>
+    <nav class="hidden md:flex gap-8 items-center">
+      <a class="nav-link active font-label font-bold text-[11px] uppercase tracking-[0.2em]" href="index.html">Home</a>
+      <a class="nav-link font-label font-medium text-[11px] uppercase tracking-[0.2em] transition-colors duration-300" href="resume.html">Resume</a>
+      <a class="nav-link font-label font-medium text-[11px] uppercase tracking-[0.2em] transition-colors duration-300" href="portfolio.html">Portfolio</a>
+      <a class="nav-link font-label font-medium text-[11px] uppercase tracking-[0.2em] transition-colors duration-300" href="contact.html">Contact</a>
+    </nav>
+    <div class="version-text font-label font-bold tracking-tight">v4.0.2-stable</div>
+  </header>
+
+  <!-- SideNavBar (Desktop Only) -->
+  <aside class="fixed left-0 top-0 h-full w-72 flex flex-col pt-32 px-8 gap-4 bg-transparent hidden lg:flex">
+    <div class="mb-8">
+      <h2 class="text-2xl font-black font-headline brand-text">Shiva Rajan</h2>
+      <p class="font-label text-[11px] uppercase tracking-[0.2em] font-medium nav-label-text">DevOps Engineer</p>
+    </div>
+    <a class="nav-item active rounded-full px-6 py-3 flex items-center gap-4 transition-all active:scale-95" href="index.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Home</span>
+    </a>
+    <a class="nav-item px-6 py-3 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]" href="resume.html">
+      <span class="material-symbols-outlined">description</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Resume</span>
+    </a>
+    <a class="nav-item px-6 py-3 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]" href="portfolio.html">
+      <span class="material-symbols-outlined">terminal</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Portfolio</span>
+    </a>
+    <a class="nav-item px-6 py-3 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]" href="contact.html">
+      <span class="material-symbols-outlined">mail</span>
+      <span class="font-label text-[11px] uppercase tracking-[0.2em] font-medium">Contact</span>
+    </a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="lg:ml-72 pt-32 pb-24 px-6 md:px-12 lg:px-24">
+    <div class="max-w-6xl mx-auto">
+      <!-- Hero Section -->
+      <section class="mb-24">
+        <div class="flex flex-col md:flex-row gap-16 items-start">
+          <div class="w-full md:w-2/3">
+            <span class="font-label primary-text text-[10px] uppercase tracking-[0.3em] block mb-4">About Me</span>
+            <h1 class="font-headline text-5xl md:text-7xl font-bold on-surface-text tracking-tighter mb-4 leading-none">
+              Shiva Rajan
+            </h1>
+            <h2 class="font-headline text-xl md:text-2xl primary-text font-light tracking-wide mb-8">
+              DevOps | SRE | Cloud Engineer
+            </h2>
+            <p class="on-surface-variant-text text-lg leading-relaxed max-w-2xl font-body">
+              Architecting resilient digital infrastructures through automation and strategic cloud orchestration. I bridge the gap between complex codebases and high-availability production environments, ensuring performance remains as scalable as the vision.
+            </p>
+          </div>
+          <!-- Contact Sidebar Info -->
+          <div class="w-full md:w-1/3 card p-8 rounded-xl space-y-8">
+            <div>
+              <span class="font-label text-[10px] uppercase tracking-widest outline-color block mb-2">Email</span>
+              <p class="on-surface-text font-medium">rjnshiv16@gmail.com</p>
+            </div>
+            <div>
+              <span class="font-label text-[10px] uppercase tracking-widest outline-color block mb-2">Location</span>
+              <p class="on-surface-text font-medium">Delhi, India / Remote</p>
+            </div>
+            <div>
+              <span class="font-label text-[10px] uppercase tracking-widest outline-color block mb-2">Status</span>
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.4)]"></span>
+                <p class="on-surface-text font-medium">Open to Work</p>
+              </div>
+            </div>
+            <button class="w-full py-4 download-btn font-label text-[11px] uppercase tracking-[0.2em] rounded-full hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-3">
+              <span class="material-symbols-outlined text-sm">download</span>
+              Download CV
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expertise Grid -->
+      <section>
+        <div class="flex items-center justify-between mb-12">
+          <h3 class="font-headline text-3xl font-bold tracking-tight on-surface-text">Expertise</h3>
+          <div class="h-px flex-grow mx-8 divider"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div class="service-card p-8 rounded-lg group hover:scale-[1.02] transition-all duration-500">
+            <div class="mb-12 inline-flex items-center justify-center w-12 h-12 rounded-lg service-icon-bg primary-text group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined">device_hub</span>
+            </div>
+            <h4 class="font-headline text-lg font-bold mb-2 on-surface-text">DevOps</h4>
+            <p class="on-surface-variant-text text-sm leading-relaxed">Continuous delivery pipelines and infrastructure automation.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card p-8 rounded-lg group hover:scale-[1.02] transition-all duration-500">
+            <div class="mb-12 inline-flex items-center justify-center w-12 h-12 rounded-lg service-icon-bg primary-text group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined">cloud</span>
+            </div>
+            <h4 class="font-headline text-lg font-bold mb-2 on-surface-text">Cloud Engineer</h4>
+            <p class="on-surface-variant-text text-sm leading-relaxed">Multi-cloud architecture and serverless environment design.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card p-8 rounded-lg group hover:scale-[1.02] transition-all duration-500">
+            <div class="mb-12 inline-flex items-center justify-center w-12 h-12 rounded-lg service-icon-bg primary-text group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined">monitoring</span>
+            </div>
+            <h4 class="font-headline text-lg font-bold mb-2 on-surface-text">SRE</h4>
+            <p class="on-surface-variant-text text-sm leading-relaxed">Observability, incident response, and performance tuning.</p>
+          </div>
+          <!-- Card 4 -->
+          <div class="service-card p-8 rounded-lg group hover:scale-[1.02] transition-all duration-500">
+            <div class="mb-12 inline-flex items-center justify-center w-12 h-12 rounded-lg service-icon-bg primary-text group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined">code</span>
+            </div>
+            <h4 class="font-headline text-lg font-bold mb-2 on-surface-text">Software Dev</h4>
+            <p class="on-surface-variant-text text-sm leading-relaxed">Full-stack development with a focus on system integrity.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full py-16 mt-auto flex flex-col items-center justify-center gap-8 footer-bg border-t footer-border">
+    <div class="flex gap-12">
+      <a class="font-body text-[10px] uppercase tracking-widest footer-link hover:primary-text transition-colors" href="https://github.com" target="_blank">GitHub</a>
+      <a class="font-body text-[10px] uppercase tracking-widest footer-link hover:primary-text transition-colors" href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a class="font-body text-[10px] uppercase tracking-widest footer-link hover:primary-text transition-colors" href="https://twitter.com" target="_blank">Twitter</a>
+    </div>
+    <p class="font-body text-[10px] uppercase tracking-widest footer-link">© 2024 Systems Architect</p>
+  </footer>
+
+  <!-- BottomNavBar (Mobile Only) -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full h-16 flex items-center justify-around z-50 px-4 bottom-nav">
+    <a class="flex flex-col items-center gap-1 primary-text" href="index.html">
+      <span class="material-symbols-outlined">home</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 nav-label-text" href="resume.html">
+      <span class="material-symbols-outlined">description</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 nav-label-text" href="portfolio.html">
+      <span class="material-symbols-outlined">terminal</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 nav-label-text" href="contact.html">
+      <span class="material-symbols-outlined">mail</span>
+    </a>
+  </nav>
+
+  <script src="theme.js"></script>
+</body>
+</html>
