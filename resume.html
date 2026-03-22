@@ -64,7 +64,7 @@
     <!-- Header -->
     <header class="mb-20">
       <div class="inline-block px-3 py-1 rounded-full mb-6" style="background-color:var(--surface-container)">
-        <span class="font-label text-[10px] uppercase tracking-widest primary-text">Curriculum Vitae</span>
+        <span class="font-label text-[10px] uppercase tracking-widest primary-text">Performance Summary</span>
       </div>
       <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter on-surface-text mb-4">Architecture of Scale.</h1>
       <p class="font-body on-surface-variant-text text-lg leading-relaxed max-w-2xl">
@@ -76,6 +76,29 @@
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-6xl">
       <!-- Main column -->
       <section class="md:col-span-8 flex flex-col gap-12">
+        <!-- Education -->
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <span class="material-symbols-outlined primary-text">school</span>
+            <h3 class="resume-section-header">Education</h3>
+            <div class="flex-1 divider ml-2"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="resume-card">
+              <h4 class="font-headline text-sm font-bold on-surface-text mb-1">B.Tech Computer Science</h4>
+              <span class="font-label text-[10px] uppercase tracking-widest on-surface-variant-text">GPA: 8.67/10</span>
+              <p class="font-body text-xs on-surface-variant-text mb-4 italic">Computer Science and Engineering</p>
+              <p class="font-label text-[10px] uppercase tracking-widest primary-text">Vellore Institute of Technology, 2023</p>
+            </div>
+            <div class="resume-card">
+              <h4 class="font-headline text-sm font-bold on-surface-text mb-1">High School</h4>
+              <span class="font-label text-[10px] uppercase tracking-widest on-surface-variant-text">GPA: 9.18/10</span>
+              <p class="font-body text-xs on-surface-variant-text mb-4 italic">Computer Science</p>
+              <p class="font-label text-[10px] uppercase tracking-widest primary-text">Sachdeva Public School, 2019</p>
+            </div>
+          </div>
+        </div>
+        
         <!-- Experience -->
         <div>
           <div class="flex items-center gap-4 mb-8">
@@ -86,60 +109,84 @@
           <div class="space-y-12">
             <div class="group">
               <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">Senior DevOps Architect</h4>
-                <span class="font-label text-[10px] uppercase tracking-widest on-surface-variant-text">2021 — Present</span>
+                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">Devops Engineer</h4>
+                <span class="font-label text-[10px] uppercase tracking-widest on-surface-variant-text">Jan 2024 - Jan 2026</span>
               </div>
-              <p class="font-label text-xs primary-text mb-4 tracking-widest uppercase">Global Cloud Solutions</p>
+              <p class="font-label text-xs primary-text mb-2 tracking-widest uppercase">Amazon</p>
+              <p class="font-body text-sm on-surface-variant-text font-bold mb-4">Improved deployment speed, reliability, and incident response across large-scale AWS-based microservices systems.</p>
               <ul class="font-body text-sm on-surface-variant-text space-y-3 leading-relaxed border-l-2 pl-6" style="border-color:var(--outline-variant);opacity:1">
-                <li>Orchestrated multi-region Kubernetes clusters serving 1M+ daily active users.</li>
-                <li>Reduced deployment cycle time by 65% through custom Jenkins shared libraries and GitOps.</li>
-                <li>Architected zero-trust security framework using HashiCorp Vault and Istio service mesh.</li>
+                <li>Designed & implemented CI/CD pipelines for microservices framework using Jenkins, reducing deployment
+                  time by 60% & improving release reliability.</li>
+                <li>Performed technical troubleshooting & root cause analysis for 300+ production incidents, improving system
+                  reliability & reducing recurring deployment failures..</li>
+                <li>Built serverless monitoring & incident triage automation using AWS Lambda & CloudWatch alerts, reducing
+                  Mean Time to Resolution (MTTR) by 60%.</li>
+                <li>Authored incident response Runbooks & Troubleshooting documentation, reducing engineering ramp-up
+                  time by 40%.</li>
+                <li>Led CI/CD-driven regression validation for 20+ features, improving early defect detection & reducing
+                  production incidents by 40%.</li>
+                <li>Collaborated with cross-functional teams (developers, QA, stakeholders) in code reviews and design discussions,
+                  ensuring clear communication and team alignment.</li>
               </ul>
             </div>
             <div class="group">
               <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">SRE / Systems Engineer</h4>
-                <span class="font-label text-[10px] uppercase tracking-widest on-surface-variant-text">2018 — 2021</span>
+                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">Devops Engineer Intern</h4>
+                <span class="font-label text-[10px] uppercase tracking-widest on-surface-variant-text">Jan 2023 - Jun 2023</span>
               </div>
-              <p class="font-label text-xs primary-text mb-4 tracking-widest uppercase">Nexus Infrastructure</p>
+              <p class="font-label text-xs primary-text mb-4 tracking-widest uppercase">Amazon</p>
               <ul class="font-body text-sm on-surface-variant-text space-y-3 leading-relaxed border-l-2 pl-6" style="border-color:var(--outline-variant)">
-                <li>Maintained 99.99% availability for core financial transaction processing engines.</li>
-                <li>Automated infrastructure provisioning with Terraform and Ansible across AWS and On-prem.</li>
-                <li>Implemented comprehensive observability stack using Prometheus, Grafana, and ELK.</li>
-              </ul>
-            </div>
-            <div class="group">
-              <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">Junior DevOps Engineer</h4>
-                <span class="font-label text-[10px] uppercase tracking-widest on-surface-variant-text">2016 — 2018</span>
-              </div>
-              <p class="font-label text-xs primary-text mb-4 tracking-widest uppercase">TechFlow Systems</p>
-              <ul class="font-body text-sm on-surface-variant-text space-y-3 leading-relaxed border-l-2 pl-6" style="border-color:var(--outline-variant)">
-                <li>Built and maintained CI/CD pipelines using Jenkins and GitLab CI.</li>
-                <li>Managed containerized microservices using Docker Swarm and transitioned to Kubernetes.</li>
-                <li>Supported on-call SRE rotations maintaining 99.9% SLA for client systems.</li>
+                <li>Enhanced a cloud-based automation framework running on AWS cloud infrastructure, automated testing
+                  of 100+ deployment validation scenarios.</li>
+                <li>Triaged & resolved release-blocking automation failures, improving deployment stability across production
+                  environments.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Education -->
+        <!-- Projects -->
         <div>
           <div class="flex items-center gap-4 mb-8">
-            <span class="material-symbols-outlined primary-text">school</span>
-            <h3 class="resume-section-header">Education</h3>
+            <span class="material-symbols-outlined primary-text">rocket_launch</span>
+            <h3 class="resume-section-header">Projects</h3>
             <div class="flex-1 divider ml-2"></div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="resume-card">
-              <h4 class="font-headline text-sm font-bold on-surface-text mb-1">M.S. Computer Science</h4>
-              <p class="font-body text-xs on-surface-variant-text mb-4 italic">Distributed Systems Focus</p>
-              <p class="font-label text-[10px] uppercase tracking-widest primary-text">Stanford University</p>
+          <div class="space-y-12">
+            <div class="group">
+              <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">Scalable Knowledge-Driven RAG API</h4>
+              </div>
+              <p class="font-label text-xs primary-text mb-2 tracking-widest uppercase">Tech Stack: Python, FastAPI, Git/Github, VectorDB(ChromaDB), Ollama(LLM), Docker, Kubernetes, GitHub Actions</p>
+              <ul class="font-body text-sm on-surface-variant-text space-y-3 leading-relaxed border-l-2 pl-6" style="border-color:var(--outline-variant);opacity:1">
+                <li>Designed & deployed a containerized RAG API with Kubernetes orchestration, enabling scalable service
+                deployments..</li>
+                <li>Implemented health checks, auto-recovery, & replica management, improving system reliability.</li>
+                <li>Created CI/CD pipelines for container build, testing, & deployment validation using GitHub Actions.</li>
+              </ul>
             </div>
-            <div class="resume-card">
-              <h4 class="font-headline text-sm font-bold on-surface-text mb-1">B.S. Software Engineering</h4>
-              <p class="font-body text-xs on-surface-variant-text mb-4 italic">Minor in Cybersecurity</p>
-              <p class="font-label text-[10px] uppercase tracking-widest primary-text">MIT</p>
+            <div class="group">
+              <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">End-to-End DevOps Automation on AWS</h4>
+              </div>
+              <p class="font-label text-xs primary-text mb-4 tracking-widest uppercase">Tech Stack: Jenkins, AWS EC2, AWS IAM, AWS EKS, Terraform, Bash, Uptime Kuma, Kubernetes, Git/Github</p>
+              <ul class="font-body text-sm on-surface-variant-text space-y-3 leading-relaxed border-l-2 pl-6" style="border-color:var(--outline-variant)">
+                <li>Deployed containerized app on AWS EKS using Docker, Kubernetes & Terraform, with automated CI/CD
+                  pipeline via Jenkins & GitHub Webhooks for zero-touch deployments.</li>
+                <li>Provisioned AWS infrastructure (EC2, IAM, EKS) using Terraform IaC, automated Docker builds & Kubernetes
+                  rolling deployments via Jenkins Declarative Pipeline with Uptime Kuma monitoring.</li>
+              </ul>
+            </div>
+            <div class="group">
+              <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                <h4 class="font-headline text-xl font-bold on-surface-text group-hover:primary-text transition-colors">React App Deployment with Automated CI/CD Pipeline</h4>
+              </div>
+              <p class="font-label text-xs primary-text mb-4 tracking-widest uppercase">Tech Stack: Docker, Docker Compose, Bash, Jenkins, AWS EC2, AWS IAM, Uptime Kuma, Git/Github</p>
+              <ul class="font-body text-sm on-surface-variant-text space-y-3 leading-relaxed border-l-2 pl-6" style="border-color:var(--outline-variant)">
+                <li>Containerized & deployed a React application on AWS EC2 using Docker, Nginx, & Docker Compose, with
+CI/CD automation via Jenkins & GitHub Webhooks with secure AWS networking.</li>
+                <li>Implemented GitOps-based multi-branch deployment (dev → public, prod → private), automated Bash deployments & real-time monitoring with downtime alerting using Uptime Kuma.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -157,12 +204,33 @@
             <span class="skill-chip">Kubernetes</span>
             <span class="skill-chip">Docker</span>
             <span class="skill-chip">Terraform</span>
-            <span class="skill-chip">AWS / GCP</span>
+            <span class="skill-chip">AWS</span>
             <span class="skill-chip">Python</span>
-            <span class="skill-chip">Go</span>
-            <span class="skill-chip">Bash</span>
-            <span class="skill-chip">ArgoCD</span>
-            <span class="skill-chip">Helm</span>
+            <span class="skill-chip">FastAPI</span>
+            <span class="skill-chip">VectorDB</span>
+            <span class="skill-chip">RAG</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">Bash Scripting</span>
+            <span class="skill-chip">Jenkins</span>
+            <span class="skill-chip">Github Action</span>
+            <span class="skill-chip">Ansible</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">Agile Methodologies</span>
+            <span class="skill-chip">Linux</span>
+            <span class="skill-chip">AWS S3</span>
+            <span class="skill-chip">AWS Lambda</span>
+            <span class="skill-chip">AWS CloudWatch</span>
+            <span class="skill-chip">AWS EKS / ECR</span>
+            <span class="skill-chip">AWS EC2</span>
+            <span class="skill-chip">AWS IAM</span>
+            <span class="skill-chip">AWS VPC</span>
+            <span class="skill-chip">Git / Github</span>
+            <span class="skill-chip">DynamoDB</span>
+            <span class="skill-chip">MongoDB</span>
+            <span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">Jira / Confluence</span>
+            <span class="skill-chip">YAML</span>
+            <span class="skill-chip">Release Management</span>
           </div>
         </div>
 
@@ -174,33 +242,81 @@
           </div>
           <div class="space-y-4">
             <div class="flex justify-between items-center">
-              <span class="font-body text-xs on-surface-variant-text">Ansible</span>
-              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
-                <div class="w-full h-full toolkit-bar"></div>
-              </div>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="font-body text-xs on-surface-variant-text">Jenkins</span>
-              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
-                <div class="w-[90%] h-full toolkit-bar"></div>
-              </div>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="font-body text-xs on-surface-variant-text">Helm</span>
-              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
-                <div class="w-[85%] h-full toolkit-bar"></div>
-              </div>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="font-body text-xs on-surface-variant-text">ArgoCD</span>
+              <span class="font-body text-xs on-surface-variant-text">AWS</span>
               <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
                 <div class="w-[80%] h-full toolkit-bar"></div>
               </div>
             </div>
             <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Ansible</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-[60%] h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Jenkins</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-[85%] h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Kubernetes</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-[85%] h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Python</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-full h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Java</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-[70%] h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Docker</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-full h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Git</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-full h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Linux</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-[95%] h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Bash</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-full h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Terraform</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-[50%] h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
               <span class="font-body text-xs on-surface-variant-text">Prometheus</span>
               <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
-                <div class="w-[88%] h-full toolkit-bar"></div>
+                <div class="w-[60%] h-full toolkit-bar"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-body text-xs on-surface-variant-text">Grafana</span>
+              <div class="w-16 h-1 rounded-full overflow-hidden toolkit-bar-bg">
+                <div class="w-[60%] h-full toolkit-bar"></div>
               </div>
             </div>
           </div>
@@ -210,7 +326,7 @@
         <div class="resume-card">
           <div class="flex items-center gap-3 mb-6">
             <span class="material-symbols-outlined primary-text text-sm">verified</span>
-            <h3 class="resume-section-header">Certifications</h3>
+            <h3 class="resume-section-header">Key Achievements</h3>
           </div>
           <div class="space-y-4">
             <div class="flex items-center gap-4">
@@ -218,8 +334,8 @@
                 <span class="material-symbols-outlined text-xs primary-text">military_tech</span>
               </div>
               <div>
-                <p class="font-headline text-[11px] font-bold on-surface-text">CKA - Kubernetes Admin</p>
-                <p class="font-body text-[9px] on-surface-variant-text">Linux Foundation</p>
+                <p class="font-headline text-[11px] font-bold on-surface-text">Reduced deployment time by 60% via CI/CD piepline optimization</p>
+                <p class="font-body text-[9px] on-surface-variant-text">Amazon</p>
               </div>
             </div>
             <div class="flex items-center gap-4">
@@ -227,8 +343,8 @@
                 <span class="material-symbols-outlined text-xs primary-text">military_tech</span>
               </div>
               <div>
-                <p class="font-headline text-[11px] font-bold on-surface-text">AWS Solutions Architect</p>
-                <p class="font-body text-[9px] on-surface-variant-text">Professional Level</p>
+                <p class="font-headline text-[11px] font-bold on-surface-text">Resolved 300+ production incidents improving system reliability</p>
+                <p class="font-body text-[9px] on-surface-variant-text">Amazon</p>
               </div>
             </div>
             <div class="flex items-center gap-4">
@@ -236,8 +352,17 @@
                 <span class="material-symbols-outlined text-xs primary-text">military_tech</span>
               </div>
               <div>
-                <p class="font-headline text-[11px] font-bold on-surface-text">HashiCorp Terraform Associate</p>
-                <p class="font-body text-[9px] on-surface-variant-text">Cloud Infrastructure</p>
+                <p class="font-headline text-[11px] font-bold on-surface-text">Reduced MTTR by 60% using automated monitoring & alerting</p>
+                <p class="font-body text-[9px] on-surface-variant-text">Amazon</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-8 h-8 rounded flex items-center justify-center cert-icon-bg">
+                <span class="material-symbols-outlined text-xs primary-text">military_tech</span>
+              </div>
+              <div>
+                <p class="font-headline text-[11px] font-bold on-surface-text">Cut production incidents by 40% through regression validation</p>
+                <p class="font-body text-[9px] on-surface-variant-text">Amazon</p>
               </div>
             </div>
           </div>
@@ -250,11 +375,10 @@
   <!-- Footer -->
   <footer class="w-full py-16 mt-auto flex flex-col items-center justify-center gap-8 footer-bg border-t footer-border">
     <div class="flex gap-12">
-      <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://github.com" target="_blank">GitHub</a>
-      <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://linkedin.com" target="_blank">LinkedIn</a>
-      <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://twitter.com" target="_blank">Twitter</a>
+      <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://github.com/Archon16" target="_blank">GitHub</a>
+      <a class="font-body text-[10px] uppercase tracking-widest footer-link transition-colors" href="https://www.linkedin.com/in/shiva-rajan/" target="_blank">LinkedIn</a>
     </div>
-    <p class="font-body text-[10px] uppercase tracking-widest footer-link">© 2024 Systems Architect</p>
+    <p class="font-body text-[10px] uppercase tracking-widest footer-link">© 2026 Shiva Rajan</p>
   </footer>
 
   <!-- Mobile Bottom Nav -->
